@@ -31,7 +31,7 @@ This API ingests health metrics data, stores them in a PostgreSQL database, and 
 
 3. **Database Setup:**
 
-   Ensure your PostgreSQL database is running. The API will automatically create the required tables when started.
+   The linked PostgreSQL database should already be running via Aiven.
 
 ## Redis Installation and Startup
 
