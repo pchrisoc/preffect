@@ -1,0 +1,17 @@
+pre {
+    background-color: var(--bs-dark);
+    border: 1px solid var(--bs-gray-700);
+    border-radius: 4px;
+}
+
+code {
+    color: var(--bs-info);
+}
+
+.card {
+    border-color: var(--bs-gray-700);
+}
+
+.card-title {
+    color: var(--bs-primary);
+}

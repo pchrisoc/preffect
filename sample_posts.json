@@ -1,0 +1,142 @@
+[
+    {
+        "user_id": 101,
+        "timestamp": "2025-01-01T09:30:00Z",
+        "heart_rate": 78,
+        "steps": 150,
+        "calories": 6.5
+    },
+    {
+        "user_id": 102,
+        "timestamp": "2025-01-01T10:00:00Z",
+        "heart_rate": 82,
+        "steps": 200,
+        "calories": 7.0
+    },
+    {
+        "user_id": 103,
+        "timestamp": "2025-01-01T10:30:00Z",
+        "heart_rate": 76,
+        "steps": 180,
+        "calories": 6.2
+    },
+    {
+        "user_id": 104,
+        "timestamp": "2025-01-01T11:00:00Z",
+        "heart_rate": 80,
+        "steps": 220,
+        "calories": 7.5
+    },
+    {
+        "user_id": 105,
+        "timestamp": "2025-01-01T11:30:00Z",
+        "heart_rate": 85,
+        "steps": 250,
+        "calories": 8.0
+    },
+    {
+        "user_id": 101,
+        "timestamp": "2025-01-01T12:00:00Z",
+        "heart_rate": 79,
+        "steps": 160,
+        "calories": 6.6
+    },
+    {
+        "user_id": 102,
+        "timestamp": "2025-01-01T12:30:00Z",
+        "heart_rate": 83,
+        "steps": 210,
+        "calories": 7.2
+    },
+    {
+        "user_id": 103,
+        "timestamp": "2025-01-01T13:00:00Z",
+        "heart_rate": 77,
+        "steps": 190,
+        "calories": 6.8
+    },
+    {
+        "user_id": 104,
+        "timestamp": "2025-01-01T13:30:00Z",
+        "heart_rate": 81,
+        "steps": 230,
+        "calories": 7.6
+    },
+    {
+        "user_id": 105,
+        "timestamp": "2025-01-01T14:00:00Z",
+        "heart_rate": 86,
+        "steps": 260,
+        "calories": 8.1
+    },
+    {
+        "user_id": 101,
+        "timestamp": "2025-01-02T09:30:00Z",
+        "heart_rate": 80,
+        "steps": 170,
+        "calories": 6.7
+    },
+    {
+        "user_id": 102,
+        "timestamp": "2025-01-02T10:00:00Z",
+        "heart_rate": 84,
+        "steps": 220,
+        "calories": 7.3
+    },
+    {
+        "user_id": 103,
+        "timestamp": "2025-01-02T10:30:00Z",
+        "heart_rate": 78,
+        "steps": 200,
+        "calories": 6.9
+    },
+    {
+        "user_id": 104,
+        "timestamp": "2025-01-02T11:00:00Z",
+        "heart_rate": 82,
+        "steps": 240,
+        "calories": 7.7
+    },
+    {
+        "user_id": 105,
+        "timestamp": "2025-01-02T11:30:00Z",
+        "heart_rate": 87,
+        "steps": 270,
+        "calories": 8.2
+    },
+    {
+        "user_id": 101,
+        "timestamp": "2025-01-02T12:00:00Z",
+        "heart_rate": 81,
+        "steps": 180,
+        "calories": 6.8
+    },
+    {
+        "user_id": 102,
+        "timestamp": "2025-01-02T12:30:00Z",
+        "heart_rate": 85,
+        "steps": 230,
+        "calories": 7.4
+    },
+    {
+        "user_id": 103,
+        "timestamp": "2025-01-02T13:00:00Z",
+        "heart_rate": 79,
+        "steps": 210,
+        "calories": 7.0
+    },
+    {
+        "user_id": 104,
+        "timestamp": "2025-01-02T13:30:00Z",
+        "heart_rate": 83,
+        "steps": 250,
+        "calories": 7.8
+    },
+    {
+        "user_id": 105,
+        "timestamp": "2025-01-02T14:00:00Z",
+        "heart_rate": 88,
+        "steps": 280,
+        "calories": 8.3
+    }
+]

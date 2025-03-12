@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Metrics API - Test</title>
+  <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="mb-4">Health Metrics API Documentation</h1>
+
+    <!-- Data Ingestion Section -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">Data Ingestion Endpoint</h2>
+        <h4>POST /ingest</h4>
+        <p>Submit health metrics data for processing.</p>
+        <h5>Request Body Example:</h5>
+        <pre class="bg-dark p-3 rounded"><code>{
+    "user_id": 101,
+    "timestamp": "2025-01-01T09:30:00Z",
+    "heart_rate": 78,
+    "steps": 150,
+    "calories": 6.5
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Metrics Query Section -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">Metrics Query Endpoint</h2>
+        <h4>GET /metrics</h4>
+        <p>Retrieve aggregated metrics for a specific user and time range.</p>
+        <h5>Query Parameters:</h5>
+        <ul>
+          <li><code>user_id</code> - User identifier</li>
+          <li><code>start</code> - Start timestamp (ISO format)</li>
+          <li><code>end</code> - End timestamp (ISO format)</li>
+        </ul>
+        <h5>Example Request:</h5>
+        <pre class="bg-dark p-3 rounded"><code>GET /metrics?user_id=123&start=2025-01-01T00:00:00Z&end=2025-01-02T00:00:00Z</code></pre>
+        <h5>Response Example:</h5>
+        <pre class="bg-dark p-3 rounded"><code>{
+  "user_id": "123",
+  "start_time": "2025-01-01T00:00:00Z",
+  "end_time": "2025-01-02T00:00:00Z",
+  "metrics": {
+    "average_heart_rate": 0,
+    "total_steps": 0,
+    "total_calories": 0
+  }
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Data Table Section -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="card-title">Resulting Data Table</h2>
+        <button id="refreshData" class="btn btn-primary mb-3">Refresh Data</button>
+        <table id="resultTable" class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User ID</th>
+              <th>Timestamp</th>
+              <th>Heart Rate</th>
+              <th>Steps</th>
+              <th>Calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be populated here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Metrics Query Button -->
+    <p>Click the button below to submit a sample Metrics Query request.</p>
+    <button id="submitRequest">Send Metrics Request</button>
+    <pre id="result" style="background-color: #232323; padding: 1rem; margin-top: 1rem;"></pre>
+  </div>
+
+  <script>
+    // Submit a single Metrics Query request and display the result.
+    document.getElementById("submitRequest").addEventListener("click", function () {
+      const url = "/metrics?user_id=123&start=2025-01-01T00:00:00Z&end=2025-01-02T00:00:00Z";
+
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch((error) => {
+          document.getElementById("result").textContent = "Error: " + error;
+        });
+    });
+
+    // Refresh Data: fetch all records from PostgreSQL via /data endpoint and update the table.
+    document.getElementById("refreshData").addEventListener("click", function () {
+      fetch("/data")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Error fetching data: " + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          const tbody = document.getElementById("resultTable").querySelector("tbody");
+          tbody.innerHTML = "";
+          data.forEach(record => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${record.id}</td>
+              <td>${record.user_id}</td>
+              <td>${record.timestamp}</td>
+              <td>${record.heart_rate}</td>
+              <td>${record.steps}</td>
+              <td>${record.calories}</td>
+            `;
+            tbody.appendChild(row);
+          });
+        })
+        .catch(error => {
+          console.error("Error processing data refresh:", error);
+          const tbody = document.getElementById("resultTable").querySelector("tbody");
+          tbody.innerHTML = `<tr><td colspan="6">Error: ${error.message}</td></tr>`;
+        });
+    });
+  </script>
+</body>
+</html>
